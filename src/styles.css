@@ -28,3 +28,19 @@ p{
     display: flex;
     justify-content: center;
 }
+
+.pez_button {
+    margin: '10vh';
+    font-family: 'High Tower Text', 'Georgia', 'Arial';
+}
+
+.drawer_list {
+    margin-left: 3vw;
+    font-family: 'High Tower Text', 'Georgia', 'Arial';
+    font-size: 10vh;
+}
+
+DataTable {
+    font-family: 'High Tower Text';
+    font-size: 8vh;
+}

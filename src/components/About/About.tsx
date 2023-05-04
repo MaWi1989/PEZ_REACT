@@ -37,7 +37,7 @@ export const About = (props:Props) => {
           <Item><img className="logo" src={logo} alt="PEZ Logo" /></Item>
           <Item><h2 className='header'>{props.header}</h2></Item>
           <Item><p>We here at PEZ Collectors United are very passionate about PEZ dispensers, and everything PEZ! 
-                We created this App, so that like-minded people like us could show of their collection, check out what other people have, and 
+                We created this App so that like-minded people like us could show of their collection, check out what other people have, and 
                 maybe set up buying, selling, or trading transactions!</p></Item>
           <Item><p> 'But What Is PEZ', you ask? </p>
                 <p>Pez is the brand name of an Austrian candy and associated manual candy dispensers. The candy is a pressed, dry, 

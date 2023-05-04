@@ -17,7 +17,7 @@ export const Home = (props:Props) => {
         <Root>    
             <NavbarContainer>
                 <Logo>
-                    <LogoA href='/about' >{logo}</LogoA>
+                    <LogoA href='/about' ><img className="logo" src={ logo } alt="PEZ Logo" /></LogoA>
                 </Logo>
                 <LogoNavigation>
                     <li>
@@ -42,7 +42,7 @@ export const Home = (props:Props) => {
                     <h1>{props.title}</h1>
                     <p>PEZ PEZ PEZ</p>
                     <p>Show off your PEZ collection!</p>
-                    <Button color='primary' variant='contained' component={Link} to='/dashboard'>Check out those PEZ</Button>
+                    <Button  className='pez_button' color='secondary' variant='contained' component={Link} to='/dashboard'>Check out those PEZ</Button>
                 </MainText>
             </Main>
     
@@ -63,26 +63,31 @@ const NavbarContainer = styled('div')( {
     justifyContent: 'space-between',
     alignItems: 'center',
 })
-const Logo = styled('h1')({
-    margin: '0 0 0 0.45em'
+const Logo = styled('a')({
+    margin: '2vw 2vw 1vw 2vw',
+ 
+
 })
 const LogoA = styled('a')( {
-    color: 'rgb(28,24,22)',
-    listStyle: 'none',
-    textTransform: 'uppercase',
-    textDecoration: 'none'
+   margin: 0,
 })
 const LogoNavigation = styled('ul')( {
     listStyle: 'none',
     textTransform: 'uppercase',
     textDecoration: 'none',
-    display: 'flex'
+    justifyContent: 'space-between',
+    display: 'flex',
+   
 })
 
 const NavA = styled(Link)({
     display: 'block',
     padding: '1em',
-    color: 'black'
+    color: 'black',
+    marginRight:'2vw',
+    fontWeight: 'bold',
+    fontSize: '2.8vh',
+    fontFamily: 'High Tower Text, Georgia, Arial'
 })
 
 const Main = styled('main')( {
@@ -100,9 +105,8 @@ const MainText = styled('div')({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    color: 'white'
+    color: 'white',
+    fontFamily: 'High Tower Text, Georgia, Arial'
 })
 
 
-
- 
