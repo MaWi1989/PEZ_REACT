@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import { blue } from '@mui/material/colors';
+import { Container } from '@mui/system';
    
 
 interface Props {
@@ -14,12 +15,11 @@ interface Props {
 export const About = (props:Props) => {
 
     return (
-       
-<div className='container'>
-{/* <NavbarContainer>
+<Container>     
+<NavbarContainer>
                 <LogoNavigation>
                     <li>
-                        <NavA href= '/about'>About</NavA>
+                        <NavA href= '/'>Home</NavA>
                     </li>
                     <li>
                         <NavA href= '/profile' >Profile</NavA>
@@ -31,7 +31,7 @@ export const About = (props:Props) => {
                         <NavA href="https://www.smithsonianmag.com/innovation/how-pez-evolved-from-anti-smoking-tool-to-beloved-collectors-item-180976545/" >History of PEZ</NavA>
                     </li>
                 </LogoNavigation>
-</NavbarContainer> */}
+</NavbarContainer>
         <Box sx={{ width: 500 }}>
         <Stack spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap" justifyContent={'center'}>
           <Item><img className="logo" src={logo} alt="PEZ Logo" /></Item>
@@ -53,16 +53,16 @@ export const About = (props:Props) => {
           </Item>
         </Stack>
       </Box>
-      </div>
+  </Container> 
     );
   }
 
 
-//   const NavA = styled('a')({
-//     display: 'block',
-//     padding: '1em',
-//     color: 'black'
-// })
+  const NavA = styled('a')({
+    display: 'block',
+    padding: '1em',
+    color: 'black'
+})
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -75,16 +75,16 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-// const LogoNavigation = styled('ul')( {
-//     listStyle: 'none',
-//     textTransform: 'uppercase',
-//     textDecoration: 'none',
-//     display: 'flex'
-// })
+const LogoNavigation = styled('ul')( {
+    listStyle: 'none',
+    textTransform: 'uppercase',
+    textDecoration: 'none',
+    display: 'flex'
+})
 
 
-// const NavbarContainer = styled('div')( {
-//     display: 'flex',
-//     justifyContent: 'space-between',
-//     alignItems: 'center',
-// })
+const NavbarContainer = styled('div')( {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+})

@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useState} from "react"; 
+import { PezForm } from '../../components/PezForm';
 import { Drawer as MUIDrawer, 
     ListItemButton,
     List, 
@@ -10,7 +11,12 @@ import { Drawer as MUIDrawer,
     Divider,
     Button,
     CssBaseline, 
-    Box
+    Box,
+    Dialog, 
+    DialogActions, 
+    DialogContent, 
+    DialogContentText, 
+    DialogTitle 
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { theme } from "../../Theme/themes";
@@ -18,6 +24,12 @@ import { DataTable } from '../../components';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded';
 
+
+interface gridData{
+  data:{
+    id?:string;
+  }
+}
 
 
 const drawerWidth = 220;
@@ -97,6 +109,8 @@ const myStyles = {
 export const Dashboard = () => {
     const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -105,6 +119,17 @@ export const Dashboard = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+
+  // Handle Dialog Open/Close
+  const handleDialogOpen = () => {
+    setDialogOpen(true);
+  }
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  }
+
 
   const itemsList = [
     {
@@ -146,7 +171,20 @@ return (
             <AddCircleRoundedIcon />  
             </IconButton>
             <Typography variant="h6" noWrap> Dashboard</Typography>
-            <Button sx={ myStyles.toolbar_button }>Create New PEZ</Button>
+            <Button sx={myStyles.toolbar_button} onClick={handleDialogOpen}>Create New PEZ</Button>
+
+          {/*Dialog Pop Up begin */}
+        <Dialog open={dialogOpen} onClose={handleDialogClose} aria-labelledby="form-dialog-title">
+          <DialogTitle id="form-dialog-title">Add New PEZ Here...</DialogTitle>
+          <DialogContent>
+            
+              <PezForm />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick = {handleDialogClose} color="primary">Cancel</Button>
+          </DialogActions>
+
+        </Dialog>
           </Toolbar>
         </AppBar>
         <MUIDrawer
