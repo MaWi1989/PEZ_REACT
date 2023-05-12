@@ -25,11 +25,11 @@ import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded';
 
 
-interface gridData{
-  data:{
-    id?:string;
-  }
-}
+// interface gridData{
+//   data:{
+//     id?:string;
+//   }
+// }
 
 
 const drawerWidth = 220;
@@ -178,7 +178,7 @@ return (
           <DialogTitle id="form-dialog-title">Add New PEZ Here...</DialogTitle>
           <DialogContent>
             
-              <PezForm />
+              <PezForm/>
           </DialogContent>
           <DialogActions>
             <Button onClick = {handleDialogClose} color="primary">Cancel</Button>
@@ -213,8 +213,7 @@ return (
         </MUIDrawer>
         <Box sx={ myStyles.content } >
           <Box sx={ myStyles.drawerHeader }/>
-          <DataTable />
-         
+        <DataTable/>
         </Box>
       </Box>
       )

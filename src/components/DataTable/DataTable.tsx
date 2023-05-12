@@ -11,6 +11,7 @@ import {
     DialogContentText, 
     DialogTitle 
 } from "@mui/material";
+import { getAuth } from 'firebase/auth'
 
 
 
@@ -79,7 +80,15 @@ const columns: GridColDef[] = [
 
 
 
+interface gridData {
+  data: {
+      id?: string;
+  }
+}
+
+
 export const DataTable =  () => {
+  const auth = getAuth()
   
     let { pezData, getData } = useGetData();
     let [open, setOpen] = useState(false);
@@ -98,11 +107,16 @@ export const DataTable =  () => {
       getData()
     }
   
+   
+    console.log(gridData) 
+    
+    const MyAuth = localStorage.getItem('myAuth');
 
-    console.log(gridData) // a list of id's from checked rows
-  
+    console.log(MyAuth);
 
-      return (
+
+    if (MyAuth === 'true'){
+    return (
           <div style={{ height: 400, width: '100%' }}>
             <h2>PEZ In Inventory</h2>
             <DataGrid 
@@ -131,4 +145,11 @@ export const DataTable =  () => {
           </Dialog>
           </div>
         );
-  }
+
+   } else { 
+    return( 
+    <div>
+        <h3>Please Sign In to View Your PEZ Collection</h3>
+    </div>
+)};
+}

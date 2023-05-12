@@ -33,6 +33,12 @@ export const Home = (props:Props) => {
                         <NavA to='/dashboard' >Dashboard</NavA>
                     </li>
                     <li>
+                        <NavA to="/signin">Sign In</NavA>
+                    </li>
+										<li>
+                        <NavA to="/signup">Sign Up</NavA>
+                    </li>
+                    <li>
                         <NavA to="https://www.smithsonianmag.com/innovation/how-pez-evolved-from-anti-smoking-tool-to-beloved-collectors-item-180976545/" >History of PEZ</NavA>
                     </li>
                 </LogoNavigation>

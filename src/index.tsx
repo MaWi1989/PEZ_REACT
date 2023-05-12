@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import './styles.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home, Dashboard, SignIn, About } from './components';
+import { Home, Dashboard, SignIn, SignUp, About } from './components';
 import { theme } from './Theme/themes';
 import { ThemeProvider } from '@mui/material/styles';
  import { Provider } from 'react-redux';
 import { store } from './redux/store';
-
-
+import { FirebaseAppProvider } from 'reactfire';
+import 'firebase/auth'
+import { firebaseConfig } from './firebaseConfig';
 
 
 const root = ReactDOM.createRoot(
@@ -18,21 +19,22 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
+   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
     <Provider store = {store}> 
     <ThemeProvider theme={theme}>
    <Router>
         <Routes>
           <Route path='/' element={<Home title  ={'PEZ Inventory'}/>} />
           <Route path='/dashboard' element={<Dashboard />} />
-          {/* <Route path='/signup' element={<SignUp />} /> */}
+          <Route path='/signup' element={<SignUp />} />
           <Route path='/signin' element={<SignIn />} />
           <Route path='/about' element={<About header ={'About Us'}/>} />
         </Routes>
       </Router>
     </ThemeProvider>
-    </Provider> 
+    </Provider>
+  </FirebaseAppProvider> 
   </React.StrictMode>,
-  // document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
